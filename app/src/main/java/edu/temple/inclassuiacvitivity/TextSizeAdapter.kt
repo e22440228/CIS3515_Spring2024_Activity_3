@@ -23,6 +23,11 @@ class TextSizeAdapter(_context : Context, _fontSize : Array<Int>) : BaseAdapter(
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+
+        return (getDropDownView(position,convertView,parent) as TextView).apply { textSize =30.0f  }
+    }
+
+    override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val textView = TextView(context)
         textView.text = getItem(position).toString()
         textView.textSize = position.toFloat()
